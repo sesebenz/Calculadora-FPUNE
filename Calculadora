@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<math.h>
+
+int main() {	
+	int aux,i=0,x=0,n,menu=0,v,sw=0,cont=0,aux2,aux3,cx=0,s;
+    double w=0,y=0,z;
+    
+	while((menu<=0)||(menu>4)){
+	printf("Seleccione una de las opciones \n1-Decimal a Binario-Octal \n2-Decimal a Binario-Hexadecimal \n3-Binario a Decimal-Octal \n4-Binario a Decimal-Hexadecimal\n");
+	scanf("%d",& menu);
+	}
+
+	if((menu==3)||(menu==4)){
+	printf("Ingrese la cantidad de digitos que posee su numero\n");
+	scanf("%d",&v);
+	int vec[v];
+	while ((sw==0)||(cont!=v)){
+		printf("Ingrese un numero binario con %d digitos \n",v);
+		scanf("%d",&n);
+		aux2=n;
+		for (i=0;i<v;i+=1){
+			vec[i]=0;	
+		}	
+		cont=0;
+		aux3=n;
+		while (aux3!=0){
+			aux3=aux3/10;
+			cont++;
+		}
+		for (i=(v-1);i>=0;i--){
+			vec[i]=aux2%10;
+			aux2=floor(aux2/10);
+		}
+		for (i=0;i<v;i+=1){
+			if ((vec[i]==1)||(vec[i]==0)){
+				sw=1;
+			}
+			else{
+				sw=0;
+				break;	
+			}
+		}
+	}
+	
+	for (i=(v-1);i>=0;i--){
+		s=s+(vec[i]*(pow(2,cx)));
+		cx+=1;
+	}
+	printf("El numero binario: %d \nEn decimales es: %d\n",n,s);
+	
+	}
